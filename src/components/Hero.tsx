@@ -36,10 +36,10 @@ const Hero = () => {
   };
 
   return (
-    <div className={`relative ${isMobile ? 'min-h-[85vh]' : 'min-h-screen'} flex flex-col items-center text-white bg-[#140f0e]`}>
+    <div className={`relative flex flex-col items-center text-white bg-[#140f0e]`}>
       <div className="absolute inset-0 -z-10 bg-[#140F0E]"></div>
 
-      <div className="container px-4 md:px-6 space-y-4 md:space-y-12 flex flex-col items-center animate-fade-in pt-4 md:pt-20 bg-[#140f0e]">
+      <div className="container px-4 md:px-6 flex flex-col items-center animate-fade-in pt-4 md:pt-20 bg-[#140f0e]">
         <div className="text-center space-y-2 md:space-y-6 max-w-4xl mx-auto">
           <p className="text-base md:text-xl text-white font-normal mb-0 md:mb-2">Hyperbaric HQ</p>
           <h1 className="text-2xl sm:text-3xl md:text-6xl lg:text-7xl tracking-tight leading-tight font-medium px-2">
@@ -50,7 +50,7 @@ const Hero = () => {
           </p>
         </div>
 
-        <div className="bg-gradient-to-br from-black/50 to-hbo-charcoal/50 backdrop-blur-sm rounded-xl md:rounded-2xl shadow-xl p-2 md:p-4 w-full mx-auto animate-scale-up border border-white/10">
+        <div className="bg-gradient-to-br from-black/50 to-hbo-charcoal/50 backdrop-blur-sm rounded-xl md:rounded-2xl shadow-xl p-2 md:p-4 w-full mx-auto animate-scale-up border border-white/10 mt-4 md:mt-8">
           <div className="relative aspect-video rounded-lg md:rounded-xl overflow-hidden flex items-center justify-center">
             <div className="absolute inset-0 flex items-center justify-center z-10">
               <div className={cn("rounded-full bg-hbo-gold/90 flex items-center justify-center cursor-pointer hover:bg-hbo-gold transition-colors duration-300 shadow-lg", isMobile ? "w-12 h-12" : "w-20 h-20")}>
@@ -64,7 +64,7 @@ const Hero = () => {
           </div>
         </div>
 
-        <div className="pt-2 md:pt-6 w-full max-w-md mx-auto flex flex-col items-center space-y-2 md:space-y-4 px-4">
+        <div className="pt-4 pb-4 md:pt-6 w-full max-w-md mx-auto flex flex-col items-center space-y-2 md:space-y-4 px-4">
           <Button className="bg-hbo-button-green hover:bg-hbo-button-green/90 text-white font-medium rounded-full px-6 md:px-12 py-3 md:py-6 text-sm md:text-lg shadow-xl transform transition-transform duration-300 hover:scale-105 w-full font-libre" onClick={scrollToBooking}>
             Book Your Consultation
           </Button>
@@ -84,7 +84,7 @@ const Hero = () => {
       </div>
       
       {!isMobile && (
-        <div className="w-full mt-16 relative">
+        <div className="w-full mt-8 relative">
           <div className="absolute inset-x-0 -top-12 h-24 bg-gradient-to-t from-hbo-charcoal to-transparent" />
           <div className="h-px w-full bg-gradient-to-r from-transparent via-hbo-gold/30 to-transparent" />
           <div className="absolute inset-x-0 -bottom-12 h-24 from-hbo-charcoal to-hbo-charcoal/95 bg-[#140f0e]" />
@@ -92,7 +92,7 @@ const Hero = () => {
       )}
       
       {isMobile && (
-        <div className="w-full mt-8 relative">
+        <div className="w-full mt-2 relative">
           <div className="h-px w-full bg-gradient-to-r from-transparent via-hbo-gold/30 to-transparent" />
         </div>
       )}
