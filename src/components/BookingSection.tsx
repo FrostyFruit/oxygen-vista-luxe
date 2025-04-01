@@ -1,41 +1,61 @@
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { Skeleton } from "@/components/ui/skeleton";
 
 const BookingSection = () => {
   const [isCalendlyLoaded, setIsCalendlyLoaded] = useState(false);
   const isMobile = useIsMobile();
+  const calendlyScriptRef = useRef<HTMLScriptElement | null>(null);
+  const calendlyInitialized = useRef(false);
 
   useEffect(() => {
-    // Add Calendly script
-    const script = document.createElement('script');
-    script.src = 'https://assets.calendly.com/assets/external/widget.js';
-    script.async = true;
-    
-    script.onload = () => {
-      setIsCalendlyLoaded(true);
+    // Only add the script once
+    if (!calendlyScriptRef.current && !document.getElementById('calendly-script')) {
+      // Create script element
+      const script = document.createElement('script');
+      script.src = 'https://assets.calendly.com/assets/external/widget.js';
+      script.async = true;
+      script.id = 'calendly-script';
       
-      // Ensure Calendly is loaded and initialized
-      if (window.Calendly) {
+      script.onload = () => {
+        setIsCalendlyLoaded(true);
+      };
+      
+      document.body.appendChild(script);
+      calendlyScriptRef.current = script;
+    }
+
+    return () => {
+      // Do not remove the script on component unmount to prevent flickering
+      // if the component re-renders
+    };
+  }, []);
+
+  // Initialize Calendly widget once the script is loaded
+  useEffect(() => {
+    if (isCalendlyLoaded && window.Calendly && !calendlyInitialized.current) {
+      const calendlyContainer = document.getElementById('calendly-inline-widget');
+      
+      if (calendlyContainer) {
+        // Clear any existing content
+        calendlyContainer.innerHTML = '';
+        
         window.Calendly.initInlineWidget({
           url: `https://calendly.com/breathebetter-hyperbarichq/30min${isMobile ? '?hide_gdpr_banner=1' : ''}`,
-          parentElement: document.getElementById('calendly-inline-widget'),
+          parentElement: calendlyContainer,
           prefill: {},
           utm: {}
         });
+        
+        calendlyInitialized.current = true;
       }
-    };
+    }
     
-    document.body.appendChild(script);
-
     return () => {
-      // Clean up
-      if (document.body.contains(script)) {
-        document.body.removeChild(script);
-      }
+      calendlyInitialized.current = false;
     };
-  }, [isMobile]);
+  }, [isCalendlyLoaded, isMobile]);
 
   return (
     <div id="booking-section" className={`py-6 ${isMobile ? 'py-8' : 'py-24'} bg-hbo-off-white`}>
