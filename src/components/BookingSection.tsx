@@ -39,7 +39,7 @@ const BookingSection = () => {
             {isCalendlyLoaded ? (
               <div 
                 className="calendly-inline-widget" 
-                data-url={'https://calendly.com/breathebetter-hyperbarichq/30min${isMobile ? '?hide_gdpr_banner=1' : ''}`}
+                data-url={`https://calendly.com/breathebetter-hyperbarichq/30min${isMobile ? '?hide_gdpr_banner=1' : ''}`}
                 style={{ minWidth: '280px', height: isMobile ? '500px' : '700px' }}
               />
             ) : (
