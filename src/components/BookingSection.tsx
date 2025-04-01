@@ -1,6 +1,7 @@
 
 import { useState, useEffect } from "react";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { Skeleton } from "@/components/ui/skeleton";
 
 const BookingSection = () => {
   const [isCalendlyLoaded, setIsCalendlyLoaded] = useState(false);
@@ -11,7 +12,21 @@ const BookingSection = () => {
     const script = document.createElement('script');
     script.src = 'https://assets.calendly.com/assets/external/widget.js';
     script.async = true;
-    script.onload = () => setIsCalendlyLoaded(true);
+    
+    script.onload = () => {
+      setIsCalendlyLoaded(true);
+      
+      // Ensure Calendly is loaded and initialized
+      if (window.Calendly) {
+        window.Calendly.initInlineWidget({
+          url: `https://calendly.com/breathebetter-hyperbarichq/30min${isMobile ? '?hide_gdpr_banner=1' : ''}`,
+          parentElement: document.getElementById('calendly-inline-widget'),
+          prefill: {},
+          utm: {}
+        });
+      }
+    };
+    
     document.body.appendChild(script);
 
     return () => {
@@ -20,7 +35,7 @@ const BookingSection = () => {
         document.body.removeChild(script);
       }
     };
-  }, []);
+  }, [isMobile]);
 
   return (
     <div id="booking-section" className="py-12 md:py-24 bg-hbo-off-white">
@@ -36,21 +51,21 @@ const BookingSection = () => {
           </div>
 
           <div className="bg-white rounded-xl md:rounded-2xl shadow-lg p-3 md:p-6 animate-scale-up border border-gray-100">
-            {isCalendlyLoaded ? (
-              <div 
-                className="calendly-inline-widget" 
-                data-url={`https://calendly.com/breathebetter-hyperbarichq/30min${isMobile ? '?hide_gdpr_banner=1' : ''}`}
-                style={{ minWidth: '280px', height: isMobile ? '500px' : '700px' }}
-              />
-            ) : (
-              <div className={`flex items-center justify-center ${isMobile ? 'h-[500px]' : 'h-[700px]'}`}>
-                <div className="animate-pulse flex flex-col items-center gap-4">
-                  <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-hbo-emerald/30"></div>
-                  <div className="h-3 md:h-4 bg-gray-200 rounded w-1/2"></div>
-                  <div className="h-3 md:h-4 bg-gray-200 rounded w-1/3"></div>
+            <div 
+              id="calendly-inline-widget"
+              className="calendly-inline-widget" 
+              style={{ minWidth: '280px', height: isMobile ? '500px' : '700px' }}
+            >
+              {!isCalendlyLoaded && (
+                <div className={`flex items-center justify-center h-full`}>
+                  <div className="animate-pulse flex flex-col items-center gap-4">
+                    <Skeleton className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-hbo-emerald/30" />
+                    <Skeleton className="h-3 md:h-4 bg-gray-200 rounded w-1/2" />
+                    <Skeleton className="h-3 md:h-4 bg-gray-200 rounded w-1/3" />
+                  </div>
                 </div>
-              </div>
-            )}
+              )}
+            </div>
           </div>
         </div>
       </div>
