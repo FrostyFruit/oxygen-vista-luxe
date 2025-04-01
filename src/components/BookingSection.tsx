@@ -41,11 +41,25 @@ const BookingSection = () => {
         // Clear any existing content
         calendlyContainer.innerHTML = '';
         
+        const params = new URLSearchParams(window.location.search);
+        const businessParam = params.get("business") || "";
+        
+        // Get UTM parameters for Calendly tracking
+        const utmSource = params.get("utm_source") || "";
+        const utmMedium = params.get("utm_medium") || "";
+        const utmCampaign = params.get("utm_campaign") || "";
+        
         window.Calendly.initInlineWidget({
           url: `https://calendly.com/breathebetter-hyperbarichq/30min${isMobile ? '?hide_gdpr_banner=1' : ''}`,
           parentElement: calendlyContainer,
-          prefill: {},
-          utm: {}
+          prefill: {
+            name: businessParam,
+          },
+          utm: {
+            utmSource,
+            utmMedium, 
+            utmCampaign
+          }
         });
         
         calendlyInitialized.current = true;

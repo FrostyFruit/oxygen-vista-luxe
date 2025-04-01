@@ -4,16 +4,39 @@ import { Play } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { getVideoForVertical } from "@/utils/videoMappings";
 
 const Hero = () => {
   const [firstName, setFirstName] = useState("there");
+  const [businessName, setBusinessName] = useState("");
+  const [vertical, setVertical] = useState("default");
+  const [videoData, setVideoData] = useState({
+    loomEmbedId: "ebd367a76d474c64a56e259d335aba3d",
+    thumbnailUrl: "/lovable-uploads/6d1d0ee9-433e-4c92-8789-97f417e3e974.png"
+  });
   const isMobile = useIsMobile();
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
+    
+    // Get name parameter (personal name)
     const nameParam = params.get("name");
     if (nameParam) {
       setFirstName(nameParam);
+    }
+    
+    // Get business name parameter
+    const businessParam = params.get("business");
+    if (businessParam) {
+      setBusinessName(businessParam);
+    }
+    
+    // Get vertical parameter for video selection
+    const verticalParam = params.get("vertical");
+    if (verticalParam) {
+      setVertical(verticalParam);
+      // Set video based on vertical
+      setVideoData(getVideoForVertical(verticalParam));
     }
   }, []);
 
@@ -43,7 +66,7 @@ const Hero = () => {
         <div className="text-center space-y-2 md:space-y-6 max-w-4xl mx-auto">
           <p className="text-base md:text-xl text-white font-normal mb-0 md:mb-2">Hyperbaric HQ</p>
           <h1 className="text-2xl sm:text-3xl md:text-6xl lg:text-7xl tracking-tight leading-tight font-medium px-2">
-            Hi {firstName}, welcome to<br />Hyperbaric HQ
+            Hi {firstName}{businessName ? `, welcome to ${businessName}` : ", welcome to Hyperbaric HQ"}
           </h1>
           <p className="text-sm md:text-lg text-white/90 mt-1 md:mt-4">
             A personalized message from Peter
@@ -57,10 +80,18 @@ const Hero = () => {
                 <Play className={cn("text-white", isMobile ? "w-6 h-6" : "w-10 h-10")} />
               </div>
             </div>
-            <iframe src="https://www.loom.com/embed/ebd367a76d474c64a56e259d335aba3d" frameBorder="0" allowFullScreen className="w-full h-full absolute inset-0 opacity-0" title="Hyperbaric HQ Presentation" allow="autoplay; fullscreen" style={{
-              opacity: 0.001
-            }} />
-            <img src="/lovable-uploads/6d1d0ee9-433e-4c92-8789-97f417e3e974.png" alt="Hyperbaric Chamber" className="w-full h-full object-cover opacity-50" />
+            <iframe 
+              src={`https://www.loom.com/embed/${videoData.loomEmbedId}`} 
+              frameBorder="0" 
+              allowFullScreen 
+              className="w-full h-full absolute inset-0 opacity-0" 
+              title="Hyperbaric HQ Presentation" 
+              allow="autoplay; fullscreen" 
+              style={{
+                opacity: 0.001
+              }} 
+            />
+            <img src={videoData.thumbnailUrl} alt="Hyperbaric Chamber" className="w-full h-full object-cover opacity-50" />
           </div>
         </div>
 
