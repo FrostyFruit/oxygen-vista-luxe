@@ -35,7 +35,7 @@ const TrustSection = () => {
       company: "Feel Good Nation"
     },
     {
-      quote: "I saw so many benefits with my son and I, from energy to injuries disappearing.",
+      quote: "Hyperbaric oxygen significantly helped my son, I even had injuries like carpal tunnel and knee pain go away",
       author: "Suzannah",
       company: "Client"
     }
