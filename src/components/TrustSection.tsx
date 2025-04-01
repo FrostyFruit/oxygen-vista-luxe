@@ -1,3 +1,4 @@
+
 import { cn } from "@/lib/utils";
 import { useIsMobile } from "@/hooks/use-mobile";
 
@@ -46,7 +47,7 @@ const TrustSection = () => {
     image: "/lovable-uploads/70b212e6-4e3d-43db-b357-64ea2e5b2e97.png"
   }, {
     name: "HPO Tech",
-    image: "/placeholder.svg"
+    image: "/lovable-uploads/ef48964b-0844-41c0-9598-be4e120901a8.png"
   }, {
     name: "Solbassium",
     image: "/placeholder.svg"
