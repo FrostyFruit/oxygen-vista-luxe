@@ -1,11 +1,8 @@
-
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { useIsMobile } from "@/hooks/use-mobile";
-
 const ResearchSection = () => {
   const isMobile = useIsMobile();
-
   const scrollToBooking = () => {
     const bookingSection = document.getElementById("booking-section");
     if (bookingSection) {
@@ -14,7 +11,6 @@ const ResearchSection = () => {
       });
     }
   };
-  
   const researchData = [{
     title: "Improved Recovery for Athletes",
     description: "Studies show up to 30% faster recovery times for sports injuries when using hyperbaric oxygen therapy.",
@@ -28,9 +24,7 @@ const ResearchSection = () => {
     description: "Research indicates improved brain function and faster recovery from concussions and TBI.",
     publication: "Neurological Science Quarterly, 2023"
   }];
-  
-  return (
-    <div id="research-section" className="py-12 md:py-24 from-hbo-charcoal to-hbo-charcoal/90 text-white bg-[140f0e] bg-[#140f0e]">
+  return <div id="research-section" className="py-12 md:py-24 from-hbo-charcoal to-hbo-charcoal/90 text-white bg-[140f0e] bg-[#140f0e]">
       <div className="container px-4 md:px-6 mx-auto">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-8 md:mb-16 animate-fade-in">
@@ -41,38 +35,21 @@ const ResearchSection = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 mb-8 md:mb-16">
-            {researchData.map((item, index) => (
-              <div 
-                key={index} 
-                className={cn(
-                  "bg-white/5 backdrop-blur-sm p-4 md:p-6 rounded-xl md:rounded-2xl border border-white/10 animate-scale-up hover:transform hover:scale-105 transition-all duration-300",
-                  index === 1 && "[animation-delay:200ms]",
-                  index === 2 && "[animation-delay:400ms]"
-                )}
-              >
-                <h3 className="text-lg md:text-xl font-bold mb-2 md:mb-3 text-hbo-gold font-playfair">{item.title}</h3>
+            {researchData.map((item, index) => <div key={index} className={cn("bg-white/5 backdrop-blur-sm p-4 md:p-6 rounded-xl md:rounded-2xl border border-white/10 animate-scale-up hover:transform hover:scale-105 transition-all duration-300", index === 1 && "[animation-delay:200ms]", index === 2 && "[animation-delay:400ms]")}>
+                <h3 className="text-lg font-bold mb-2 md:mb-3 font-playfair md:text-[C8AE73] text-[#c8ae73]">{item.title}</h3>
                 <p className="text-sm md:text-base text-hbo-off-white/80 mb-3 md:mb-4">{item.description}</p>
                 <p className="text-xs md:text-sm text-hbo-off-white/60 italic">{item.publication}</p>
-              </div>
-            ))}
+              </div>)}
           </div>
 
           <div className="text-center px-4">
             <p className="mb-4 md:mb-6 text-base md:text-lg">Ready to bring this technology to your clinic?</p>
-            <Button 
-              onClick={scrollToBooking} 
-              className={cn(
-                "bg-transparent border border-hbo-button-gold bg-hbo-button-gold/90 text-hbo-charcoal hover:bg-hbo-button-gold font-medium rounded-full shadow-xl transform transition-transform duration-300 hover:scale-105 w-full font-libre",
-                isMobile ? "px-6 py-4 text-base" : "px-12 py-6 text-lg"
-              )}
-            >
+            <Button onClick={scrollToBooking} className={cn("bg-transparent border border-hbo-button-gold bg-hbo-button-gold/90 text-hbo-charcoal hover:bg-hbo-button-gold font-medium rounded-full shadow-xl transform transition-transform duration-300 hover:scale-105 w-full font-libre", isMobile ? "px-6 py-4 text-base" : "px-12 py-6 text-lg")}>
               Book Your Consultation
             </Button>
           </div>
         </div>
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default ResearchSection;
