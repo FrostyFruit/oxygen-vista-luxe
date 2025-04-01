@@ -32,16 +32,17 @@ const Hero = () => {
 
   return (
     <div className="relative min-h-screen flex flex-col items-center text-white">
-      {/* Solid dark background instead of image */}
+      {/* Solid black background as shown in the image */}
       <div className="absolute inset-0 -z-10 bg-black"></div>
 
       <div className="container px-4 md:px-6 space-y-12 flex flex-col items-center animate-fade-in pt-20">
-        {/* Hero content */}
-        <div className="text-center space-y-4 max-w-4xl mx-auto">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight font-libre">
-            Hi <span className="text-hbo-gold">{firstName}</span>, welcome to <br/> Hyperbaric HQ
+        {/* Hero content with updated typography styling */}
+        <div className="text-center space-y-6 max-w-4xl mx-auto">
+          <p className="text-xl text-white font-normal mb-2">Hyperbaric HQ</p>
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-tight">
+            Hi {firstName}, welcome to<br/>Hyperbaric HQ
           </h1>
-          <p className="text-xl text-hbo-off-white/90 font-libre">
+          <p className="text-lg text-white/90 mt-4">
             A personalized message from Peter
           </p>
         </div>
@@ -71,7 +72,7 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* CTA Buttons - Stacked with premium styling */}
+        {/* CTA Buttons - RETAINING THE ORIGINAL BUTTON LAYOUT AND COLORS as requested */}
         <div className="pt-6 w-full max-w-md mx-auto flex flex-col items-center space-y-4">
           <Button 
             className="bg-hbo-button-green hover:bg-hbo-button-green/90 text-white font-medium rounded-full px-12 py-6 text-lg shadow-xl transform transition-transform duration-300 hover:scale-105 w-full font-libre"
