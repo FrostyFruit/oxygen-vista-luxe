@@ -30,7 +30,7 @@ const TrustSection = () => {
       company: "Infinity IV"
     },
     {
-      quote: "Hyperbaric has transformed my clinic not only the business, but my communities results.",
+      quote: "Hyperbaric has transformed my clinic, not only my business, but my clients results.",
       author: "Michael Nguyen",
       company: "Feel Good Nation"
     },
