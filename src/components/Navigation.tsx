@@ -14,7 +14,7 @@ const Navigation = () => {
         </div>
         
         <div className="flex-1 flex justify-center md:justify-end gap-2">
-          <a href="/" className="text-hbo-off-white hover:text-hbo-gold transition-colors font-libre">JOIN-HQ</a>
+          <a href="/" className="text-hbo-off-white hover:text-hbo-charcoal transition-colors font-libre">JOIN-HQ</a>
           <div className="hidden md:flex items-center gap-2 ml-4">
             <Button variant="default" className="bg-hbo-button-green hover:bg-hbo-button-green/90 text-white rounded-full px-4 py-1 h-auto text-sm shadow-md font-libre">
               Subscribe
