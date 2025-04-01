@@ -50,7 +50,7 @@ const TrustSection = () => {
     image: "/lovable-uploads/ef48964b-0844-41c0-9598-be4e120901a8.png"
   }, {
     name: "Solbassium",
-    image: "/placeholder.svg"
+    image: "/lovable-uploads/c751d693-d335-418b-9aca-3b333ce74ea5.png"
   }];
   
   return <div id="trust-section" className="py-12 md:py-24 bg-gradient-to-b from-hbo-off-white to-white">
