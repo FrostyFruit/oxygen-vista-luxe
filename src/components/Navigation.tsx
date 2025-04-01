@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 const Navigation = () => {
-  return <div className="w-full backdrop-blur-md border-b border-white/10 bg-[F4F3F0] bg-zinc-700">
+  return <div className="w-full backdrop-blur-md border-b border-white/10 bg-[F4F3F0] bg-[#f4f3f0]">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         <div className="flex-1 flex justify-center md:justify-start">
           <a href="/" className="text-hbo-charcoal hover:text-hbo-gold transition-colors font-libre">PROVIDERS</a>
