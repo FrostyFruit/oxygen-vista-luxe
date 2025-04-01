@@ -40,8 +40,8 @@ const Footer = () => {
           <div className="space-y-4">
             <h4 className="text-lg font-semibold">Contact</h4>
             <ul className="space-y-2 text-gray-300">
-              <li>Email: info@hyperbarichq.com</li>
-              <li>Phone: +1 (555) 123-4567</li>
+              <li>Email: breathebetter@hyperbarichq.com</li>
+              <li>Phone: +61 0426-259-808</li>
             </ul>
           </div>
         </div>

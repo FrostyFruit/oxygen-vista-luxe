@@ -36,7 +36,7 @@ const Hero = () => {
         {/* Hero content with updated typography styling */}
         <div className="text-center space-y-6 max-w-4xl mx-auto">
           <p className="text-xl text-white font-normal mb-2">Hyperbaric HQ</p>
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-tight">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl tracking-tight leading-tight font-medium">
             Hi {firstName}, welcome to<br />Hyperbaric HQ
           </h1>
           <p className="text-lg text-white/90 mt-4">

@@ -42,7 +42,7 @@ const ResearchSection = () => {
 
           <div className="text-center">
             <p className="mb-6 text-lg">Ready to bring this technology to your clinic?</p>
-            <Button onClick={scrollToBooking} className={cn("bg-hbo-gold hover:bg-hbo-gold/90 text-hbo-charcoal rounded-full px-8 py-6 text-lg font-medium transform transition-transform duration-300 hover:scale-105")}>
+            <Button onClick={scrollToBooking} className="bg-transparent border border-hbo-button-gold bg-hbo-button-gold/90 text-hbo-charcoal hover:bg-hbo-button-gold font-medium rounded-full px-12 py-6 text-lg shadow-xl transform transition-transform duration-300 hover:scale-105 w-full font-libre">
               Book Your Consultation
             </Button>
           </div>
