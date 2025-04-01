@@ -1,10 +1,12 @@
 import { cn } from "@/lib/utils";
 import { useIsMobile } from "@/hooks/use-mobile";
+
 interface TestimonialProps {
   quote: string;
   author: string;
   company: string;
 }
+
 const Testimonial = ({
   quote,
   author,
@@ -16,26 +18,32 @@ const Testimonial = ({
       <p className="text-xs md:text-sm text-gray-500">{company}</p>
     </div>
   </div>;
+
 const TrustSection = () => {
   const isMobile = useIsMobile();
-  const testimonials = [{
-    quote: "We're fully booked out and our clients are loving it!",
-    author: "Natasha Friedman",
-    company: "Infinity IV"
-  }, {
-    quote: "Hyperbaric has transformed my clinic not only the business, but my communities results.",
-    author: "Michael Nguyen",
-    company: "Feel Good Nation"
-  }, {
-    quote: "I saw so many benefits with my son and I, from energy to injuries disappearing.",
-    author: "Suzannah",
-    company: "Client"
-  }];
+  
+  const testimonials = [
+    {
+      quote: "We're fully booked out and our clients are loving it!",
+      author: "Natasha Friedman",
+      company: "Infinity IV"
+    },
+    {
+      quote: "Hyperbaric has transformed my clinic not only the business, but my communities results.",
+      author: "Michael Nguyen",
+      company: "Feel Good Nation"
+    },
+    {
+      quote: "I saw so many benefits with my son and I, from energy to injuries disappearing.",
+      author: "Suzannah",
+      company: "Client"
+    }
+  ];
 
   // Partner brand images
   const partnerBrands = [{
     name: "OneBase Health",
-    image: "/placeholder.svg"
+    image: "/lovable-uploads/70b212e6-4e3d-43db-b357-64ea2e5b2e97.png"
   }, {
     name: "HPO Tech",
     image: "/placeholder.svg"
@@ -43,6 +51,7 @@ const TrustSection = () => {
     name: "Solbassium",
     image: "/placeholder.svg"
   }];
+  
   return <div id="trust-section" className="py-12 md:py-24 bg-gradient-to-b from-hbo-off-white to-white">
       <div className="container px-4 md:px-6 mx-auto">
         <div className="max-w-5xl mx-auto">
@@ -68,4 +77,5 @@ const TrustSection = () => {
       </div>
     </div>;
 };
+
 export default TrustSection;
