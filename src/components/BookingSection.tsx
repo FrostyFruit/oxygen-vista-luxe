@@ -14,7 +14,9 @@ const BookingSection = () => {
 
     return () => {
       // Clean up
-      document.body.removeChild(script);
+      if (document.body.contains(script)) {
+        document.body.removeChild(script);
+      }
     };
   }, []);
 
@@ -23,7 +25,7 @@ const BookingSection = () => {
       <div className="container px-4 md:px-6 mx-auto">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12 animate-fade-in">
-            <h2 className="text-3xl md:text-4xl font-bold text-hbo-charcoal mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-hbo-charcoal mb-4 font-playfair">
               Reserve Your 10 Minute Session with Peter
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
@@ -31,7 +33,7 @@ const BookingSection = () => {
             </p>
           </div>
 
-          <div className="bg-white rounded-2xl shadow-lg p-6 animate-scale-up">
+          <div className="bg-white rounded-2xl shadow-lg p-6 animate-scale-up border border-gray-100">
             {isCalendlyLoaded ? (
               <div 
                 className="calendly-inline-widget" 
@@ -41,7 +43,7 @@ const BookingSection = () => {
             ) : (
               <div className="h-[700px] flex items-center justify-center">
                 <div className="animate-pulse flex flex-col items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-gray-200"></div>
+                  <div className="w-12 h-12 rounded-full bg-hbo-gold/30"></div>
                   <div className="h-4 bg-gray-200 rounded w-1/2"></div>
                   <div className="h-4 bg-gray-200 rounded w-1/3"></div>
                 </div>

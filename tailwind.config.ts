@@ -93,8 +93,8 @@ export default {
 					'100%': { opacity: '1', transform: 'translateY(0)' }
 				},
 				'scale-up': {
-					'0%': { transform: 'scale(0.95)' },
-					'100%': { transform: 'scale(1)' }
+					'0%': { transform: 'scale(0.95)', opacity: '0' },
+					'100%': { transform: 'scale(1)', opacity: '1' }
 				}
 			},
 			animation: {

@@ -31,11 +31,11 @@ const Hero = () => {
   };
 
   return (
-    <div className="relative min-h-screen flex flex-col justify-center items-center text-white">
-      {/* Background image with overlay */}
+    <div className="relative min-h-screen flex flex-col items-center text-white">
+      {/* Background with dark overlay */}
       <div className="absolute inset-0 -z-10">
         <div 
-          className="absolute inset-0 bg-hbo-charcoal/80"
+          className="absolute inset-0 bg-hbo-charcoal/90"
           style={{
             backgroundImage: `url('/lovable-uploads/f6007ac6-c9bc-45ad-8233-d53cabf97cd9.png')`,
             backgroundSize: 'cover',
@@ -46,23 +46,29 @@ const Hero = () => {
         />
       </div>
 
-      <div className="container px-4 md:px-6 space-y-12 py-12 animate-fade-in">
+      {/* Branding at the top */}
+      <div className="w-full text-center pt-12 pb-4">
+        <h3 className="text-xl font-playfair tracking-wide text-hbo-off-white/90 animate-fade-in">
+          Hyperbaric HQ
+        </h3>
+      </div>
+
+      <div className="container px-4 md:px-6 space-y-12 flex flex-col items-center animate-fade-in">
         {/* Hero content */}
-        <div className="text-center space-y-4 max-w-4xl mx-auto">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
-            Hi <span className="text-hbo-emerald">{firstName}</span>, welcome to Hyperbaric HQ
+        <div className="text-center space-y-4 max-w-4xl mx-auto pt-8">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight font-playfair">
+            Hi <span className="text-hbo-emerald">{firstName}</span>, welcome to <br/> Hyperbaric HQ
           </h1>
-          <p className="text-xl text-hbo-off-white/80">
-            A message from Peter
+          <p className="text-xl text-hbo-off-white/90">
+            A personalized message from Peter
           </p>
         </div>
 
         {/* Video card */}
-        <div className="bg-white/10 backdrop-blur-sm rounded-2xl shadow-lg p-3 max-w-3xl w-full mx-auto animate-scale-up">
-          <div className="relative aspect-video bg-black/30 rounded-xl overflow-hidden flex items-center justify-center">
-            {/* Placeholder for actual video - would be replaced with an iframe */}
+        <div className="bg-black/30 backdrop-blur-sm rounded-2xl shadow-xl p-4 max-w-3xl w-full mx-auto animate-scale-up border border-white/10">
+          <div className="relative aspect-video bg-black/40 rounded-xl overflow-hidden flex items-center justify-center">
             <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-20 h-20 rounded-full bg-hbo-emerald/80 flex items-center justify-center cursor-pointer hover:bg-hbo-emerald transition-colors duration-300">
+              <div className="w-20 h-20 rounded-full bg-hbo-gold/80 flex items-center justify-center cursor-pointer hover:bg-hbo-gold transition-colors duration-300">
                 <Play className="w-10 h-10 text-white" />
               </div>
             </div>
@@ -74,27 +80,23 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4 max-w-md mx-auto">
+        {/* CTA Button */}
+        <div className="pt-6 w-full max-w-md mx-auto flex justify-center">
           <Button 
-            className={cn(
-              "bg-hbo-emerald hover:bg-hbo-emerald/90 text-white rounded-full px-8 py-6 text-lg font-medium w-full sm:w-auto btn-hover"
-            )}
+            className="bg-hbo-gold hover:bg-hbo-gold/90 text-hbo-charcoal font-medium rounded-full px-12 py-6 text-lg shadow-lg transform transition-transform duration-300 hover:scale-105 w-full"
             onClick={scrollToBooking}
           >
             Book Your Consultation
           </Button>
-          <Button 
-            variant="outline" 
-            className="bg-transparent border-white/30 text-white hover:bg-white/10 rounded-full px-8 py-6 text-lg font-medium w-full sm:w-auto btn-hover"
-            onClick={scrollToResearch}
-          >
-            Explore Research
-          </Button>
         </div>
         
-        <p className="text-center text-white/70 text-sm">
-          *First time hearing about HBOT? Check out the research
+        <p className="text-center text-white/80 text-sm">
+          *First time hearing about HBOT? <button 
+            onClick={scrollToResearch}
+            className="text-hbo-gold hover:underline focus:outline-none"
+          >
+            Check out the research
+          </button>
         </p>
       </div>
     </div>
