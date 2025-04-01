@@ -11,10 +11,12 @@ const Index = () => {
     <div className="min-h-screen bg-gradient-to-b from-hbo-charcoal to-hbo-charcoal/95 font-libre">
       <Navigation />
       <Hero />
-      <ResearchSection />
-      <BookingSection />
-      <TrustSection />
-      <Footer />
+      <div className="relative z-10 bg-hbo-charcoal/98">
+        <ResearchSection />
+        <BookingSection />
+        <TrustSection />
+        <Footer />
+      </div>
     </div>
   );
 };

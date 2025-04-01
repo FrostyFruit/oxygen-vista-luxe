@@ -38,8 +38,8 @@ const Hero = () => {
           className="absolute inset-0"
           style={{
             backgroundImage: `
-              linear-gradient(to bottom, rgba(26, 31, 44, 0.95), rgba(26, 31, 44, 0.85)), 
-              url('/lovable-uploads/c8e2bd9f-c354-4f50-b08a-cf654cb4ec37.png')
+              linear-gradient(to bottom, rgba(26, 31, 44, 0.85), rgba(26, 31, 44, 0.75)), 
+              url('/lovable-uploads/6d1d0ee9-433e-4c92-8789-97f417e3e974.png')
             `,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
@@ -110,6 +110,13 @@ const Hero = () => {
             Explore Research
           </Button>
         </div>
+      </div>
+      
+      {/* Delineation between sections - premium divider */}
+      <div className="w-full mt-16 relative">
+        <div className="absolute inset-x-0 -top-8 h-16 bg-gradient-to-t from-hbo-charcoal to-transparent"/>
+        <div className="h-px w-full bg-gradient-to-r from-transparent via-hbo-gold/50 to-transparent"/>
+        <div className="absolute inset-x-0 -bottom-8 h-16 bg-gradient-to-b from-hbo-charcoal to-transparent"/>
       </div>
     </div>
   );
