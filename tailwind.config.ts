@@ -68,6 +68,8 @@ export default {
 					'off-white': '#F6F6F7',
 					'gold': '#D4AF37',
 					'emerald': '#046A38',
+					'button-green': '#1D4D3B',
+					'button-gold': '#D9BC7C',
 				},
 			},
 			borderRadius: {
@@ -77,6 +79,7 @@ export default {
 			},
 			fontFamily: {
 				'playfair': ['Playfair Display', 'serif'],
+				'libre': ['Libre Baskerville', 'serif'],
 				'inter': ['Inter', 'sans-serif'],
 			},
 			keyframes: {

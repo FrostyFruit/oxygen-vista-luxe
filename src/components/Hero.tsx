@@ -39,7 +39,7 @@ const Hero = () => {
           style={{
             backgroundImage: `
               linear-gradient(to bottom, rgba(26, 31, 44, 0.95), rgba(26, 31, 44, 0.85)), 
-              url('/lovable-uploads/56bf985d-0b41-494e-926d-3c284fa69ed0.png')
+              url('/lovable-uploads/c8e2bd9f-c354-4f50-b08a-cf654cb4ec37.png')
             `,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
@@ -51,10 +51,10 @@ const Hero = () => {
       <div className="container px-4 md:px-6 space-y-12 flex flex-col items-center animate-fade-in pt-20">
         {/* Hero content */}
         <div className="text-center space-y-4 max-w-4xl mx-auto">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight font-playfair">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight font-libre">
             Hi <span className="text-hbo-gold">{firstName}</span>, welcome to <br/> Hyperbaric HQ
           </h1>
-          <p className="text-xl text-hbo-off-white/90">
+          <p className="text-xl text-hbo-off-white/90 font-libre">
             A personalized message from Peter
           </p>
         </div>
@@ -77,7 +77,7 @@ const Hero = () => {
               style={{ opacity: 0.001 }} // Almost invisible but still loads
             />
             <img 
-              src="/lovable-uploads/56bf985d-0b41-494e-926d-3c284fa69ed0.png" 
+              src="/lovable-uploads/c8e2bd9f-c354-4f50-b08a-cf654cb4ec37.png" 
               alt="Hyperbaric Chamber" 
               className="w-full h-full object-cover opacity-50"
             />
@@ -87,14 +87,14 @@ const Hero = () => {
         {/* CTA Buttons - Stacked with premium styling */}
         <div className="pt-6 w-full max-w-md mx-auto flex flex-col items-center space-y-4">
           <Button 
-            className="bg-hbo-emerald hover:bg-hbo-emerald/90 text-white font-medium rounded-full px-12 py-6 text-lg shadow-xl transform transition-transform duration-300 hover:scale-105 w-full"
+            className="bg-hbo-button-green hover:bg-hbo-button-green/90 text-white font-medium rounded-full px-12 py-6 text-lg shadow-xl transform transition-transform duration-300 hover:scale-105 w-full font-libre"
             onClick={scrollToBooking}
           >
             Book Your Consultation
           </Button>
           
-          <p className="text-center text-white/90 text-sm my-3">
-            *First time hearing about HBOT? <button 
+          <p className="text-center text-white/90 text-sm my-3 font-libre italic">
+            First time hearing about HBOT? <button 
               onClick={scrollToResearch}
               className="text-hbo-gold hover:underline focus:outline-none font-medium"
             >
@@ -104,7 +104,7 @@ const Hero = () => {
           
           <Button 
             variant="outline"
-            className="bg-transparent border border-white/30 text-white hover:bg-white/10 font-medium rounded-full px-12 py-6 text-lg shadow-xl transform transition-transform duration-300 hover:scale-105 w-full"
+            className="bg-transparent border border-hbo-button-gold bg-hbo-button-gold/90 text-hbo-charcoal hover:bg-hbo-button-gold font-medium rounded-full px-12 py-6 text-lg shadow-xl transform transition-transform duration-300 hover:scale-105 w-full font-libre"
             onClick={scrollToResearch}
           >
             Explore Research

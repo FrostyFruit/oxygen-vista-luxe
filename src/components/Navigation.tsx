@@ -7,7 +7,7 @@ const Navigation = () => {
     <div className="w-full bg-hbo-charcoal/90 backdrop-blur-md border-b border-white/10">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         <div className="flex-1 flex justify-center md:justify-start">
-          <a href="/" className="text-hbo-off-white hover:text-hbo-gold transition-colors font-semibold">PROVIDERS</a>
+          <a href="/" className="text-hbo-off-white hover:text-hbo-gold transition-colors font-libre">PROVIDERS</a>
         </div>
         
         <div className="hidden md:flex flex-1 justify-center">
@@ -21,18 +21,18 @@ const Navigation = () => {
         </div>
         
         <div className="flex-1 flex justify-center md:justify-end gap-2">
-          <a href="/" className="text-hbo-off-white hover:text-hbo-gold transition-colors font-semibold">JOIN-HQ</a>
+          <a href="/" className="text-hbo-off-white hover:text-hbo-gold transition-colors font-libre">JOIN-HQ</a>
           <div className="hidden md:flex items-center gap-2 ml-4">
             <Button 
               variant="default" 
-              className="bg-hbo-emerald hover:bg-hbo-emerald/90 text-white rounded-full px-4 py-1 h-auto text-sm shadow-md"
+              className="bg-hbo-button-green hover:bg-hbo-button-green/90 text-white rounded-full px-4 py-1 h-auto text-sm shadow-md font-libre"
             >
               Subscribe
             </Button>
             
             <Button 
               variant="outline" 
-              className="border-hbo-gold/80 text-hbo-gold hover:bg-hbo-gold/20 rounded-full px-4 py-1 h-auto text-sm shadow-md"
+              className="bg-hbo-button-gold/90 text-hbo-charcoal hover:bg-hbo-button-gold border-hbo-button-gold rounded-full px-4 py-1 h-auto text-sm shadow-md font-libre"
             >
               Shop Chambers
             </Button>
