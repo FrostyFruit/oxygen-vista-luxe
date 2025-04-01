@@ -17,7 +17,7 @@ const Navigation = () => {
     <div className="w-full backdrop-blur-md border-b border-white/10 bg-[F4F3F0] bg-[#f4f3f0] sticky top-0 z-50">
       <div className="container mx-auto px-4 py-3 md:py-4 flex justify-between items-center">
         <div className="flex-1 flex justify-center md:justify-start">
-          <a href="/" className="text-hbo-charcoal hover:text-hbo-gold transition-colors font-libre">PROVIDERS</a>
+          {/* PROVIDERS link has been removed */}
         </div>
         
         <div className="hidden md:flex flex-1 justify-center">
