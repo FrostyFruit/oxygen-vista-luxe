@@ -28,7 +28,7 @@ const Hero = () => {
       });
     }
   };
-  return <div className="relative min-h-screen flex flex-col items-center text-white bg-stone-950">
+  return <div className="relative min-h-screen flex flex-col items-center text-white bg-[140f0e] bg-[#140f0e]">
       {/* Updated background color to #140F0E */}
       <div className="absolute inset-0 -z-10 bg-[#140F0E]"></div>
 
@@ -82,7 +82,7 @@ const Hero = () => {
       <div className="w-full mt-16 relative">
         <div className="absolute inset-x-0 -top-12 h-24 bg-gradient-to-t from-hbo-charcoal to-transparent" />
         <div className="h-px w-full bg-gradient-to-r from-transparent via-hbo-gold/30 to-transparent" />
-        <div className="absolute inset-x-0 -bottom-12 h-24 bg-gradient-to-b from-hbo-charcoal to-hbo-charcoal/95" />
+        <div className="absolute inset-x-0 -bottom-12 h-24 from-hbo-charcoal to-hbo-charcoal/95 bg-[140f0e] bg-[#140f0e]" />
       </div>
     </div>;
 };
