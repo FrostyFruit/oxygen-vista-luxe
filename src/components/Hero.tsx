@@ -32,14 +32,14 @@ const Hero = () => {
 
   return (
     <div className="relative min-h-screen flex flex-col items-center text-white">
-      {/* Premium gradient background overlay - Using hyperbaric chamber image for entire hero section */}
+      {/* Premium gradient background overlay - Using new hyperbaric chamber image for hero section */}
       <div className="absolute inset-0 -z-10">
         <div 
           className="absolute inset-0"
           style={{
             backgroundImage: `
-              linear-gradient(to bottom, rgba(26, 31, 44, 0.85), rgba(26, 31, 44, 0.75)), 
-              url('/lovable-uploads/c8e2bd9f-c354-4f50-b08a-cf654cb4ec37.png')
+              linear-gradient(to bottom, rgba(26, 31, 44, 0.7), rgba(26, 31, 44, 0.65)), 
+              url('/lovable-uploads/a1ccc72a-72e6-4b78-89fe-71978dd95171.png')
             `,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
