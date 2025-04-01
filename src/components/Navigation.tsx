@@ -1,23 +1,18 @@
-
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
-
 const Navigation = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const isMobile = useIsMobile();
-
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
   };
-
-  return (
-    <div className="w-full backdrop-blur-md border-b border-white/10 bg-[F4F3F0] bg-[#f4f3f0] sticky top-0 z-50">
+  return <div className="w-full backdrop-blur-md border-b border-white/10 bg-[F4F3F0] bg-[#f4f3f0] sticky top-0 z-50">
       <div className="container mx-auto px-4 py-3 md:py-4 flex justify-between items-center">
         <div className="flex-1 flex justify-center md:justify-start">
-          {/* PROVIDERS link has been removed */}
+          <a href="/" className="text-hbo-charcoal hover:text-hbo-gold transition-colors font-libre">PROVIDERS</a>
         </div>
         
         <div className="hidden md:flex flex-1 justify-center">
@@ -34,17 +29,10 @@ const Navigation = () => {
         </div>
         
         <div className="flex-1 flex justify-end items-center">
-          {isMobile ? (
-            <button 
-              onClick={toggleMobileMenu}
-              className="p-2 text-hbo-charcoal focus:outline-none"
-              aria-label="Toggle menu"
-            >
+          {isMobile ? <button onClick={toggleMobileMenu} className="p-2 text-hbo-charcoal focus:outline-none" aria-label="Toggle menu">
               {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
-          ) : (
-            <div className="flex items-center gap-2">
-              <a href="/" className="text-hbo-off-white hover:text-hbo-charcoal transition-colors font-libre">JOIN-HQ</a>
+            </button> : <div className="flex items-center gap-2">
+              <a href="/" className="text-hbo-off-charcoal hover:text-hbo-charcoal transition-colors font-libre">JOIN-HQ</a>
               <div className="hidden md:flex items-center gap-2 ml-4">
                 <Button variant="default" className="bg-hbo-button-green hover:bg-hbo-button-green/90 text-white rounded-full px-4 py-1 h-auto text-sm shadow-md font-libre">
                   Subscribe
@@ -62,14 +50,12 @@ const Navigation = () => {
                   </svg>
                 </div>
               </div>
-            </div>
-          )}
+            </div>}
         </div>
       </div>
       
       {/* Mobile Menu */}
-      {mobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 bg-[#f4f3f0] border-b border-white/10 shadow-lg z-50 animate-fade-in">
+      {mobileMenuOpen && <div className="md:hidden absolute top-full left-0 right-0 bg-[#f4f3f0] border-b border-white/10 shadow-lg z-50 animate-fade-in">
           <div className="p-4 flex flex-col space-y-3">
             <a href="/" className="text-hbo-charcoal hover:text-hbo-gold transition-colors font-libre py-2">JOIN-HQ</a>
             <Button variant="default" className="bg-hbo-button-green hover:bg-hbo-button-green/90 text-white rounded-full px-4 py-2 h-auto text-sm shadow-md font-libre w-full">
@@ -88,10 +74,7 @@ const Navigation = () => {
               <span className="text-hbo-charcoal font-libre text-sm">Account</span>
             </div>
           </div>
-        </div>
-      )}
-    </div>
-  );
+        </div>}
+    </div>;
 };
-
 export default Navigation;
