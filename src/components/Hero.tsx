@@ -32,8 +32,8 @@ const Hero = () => {
 
   return (
     <div className="relative min-h-screen flex flex-col items-center text-white">
-      {/* Solid black background as shown in the image */}
-      <div className="absolute inset-0 -z-10 bg-black"></div>
+      {/* Updated background color to #140F0E */}
+      <div className="absolute inset-0 -z-10 bg-[#140F0E]"></div>
 
       <div className="container px-4 md:px-6 space-y-12 flex flex-col items-center animate-fade-in pt-20">
         {/* Hero content with updated typography styling */}
