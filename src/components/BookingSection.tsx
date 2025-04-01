@@ -8,6 +8,7 @@ const BookingSection = () => {
   const isMobile = useIsMobile();
   const calendlyScriptRef = useRef<HTMLScriptElement | null>(null);
   const calendlyInitialized = useRef(false);
+  const widgetContainerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     // Only add the script once
@@ -24,23 +25,24 @@ const BookingSection = () => {
       
       document.body.appendChild(script);
       calendlyScriptRef.current = script;
+    } else if (document.getElementById('calendly-script')) {
+      // If script already exists but state doesn't reflect it
+      setIsCalendlyLoaded(true);
     }
 
     return () => {
-      // Do not remove the script on component unmount to prevent flickering
-      // if the component re-renders
+      // Cleanup function
+      calendlyInitialized.current = false;
     };
   }, []);
 
   // Initialize Calendly widget once the script is loaded
   useEffect(() => {
-    if (isCalendlyLoaded && window.Calendly && !calendlyInitialized.current) {
-      const calendlyContainer = document.getElementById('calendly-inline-widget');
+    if (isCalendlyLoaded && window.Calendly && !calendlyInitialized.current && widgetContainerRef.current) {
+      // Clear any existing content
+      if (widgetContainerRef.current) {
+        widgetContainerRef.current.innerHTML = '';
       
-      if (calendlyContainer) {
-        // Clear any existing content
-        calendlyContainer.innerHTML = '';
-        
         const params = new URLSearchParams(window.location.search);
         const businessParam = params.get("business") || "";
         
@@ -49,27 +51,28 @@ const BookingSection = () => {
         const utmMedium = params.get("utm_medium") || "";
         const utmCampaign = params.get("utm_campaign") || "";
         
-        window.Calendly.initInlineWidget({
-          url: `https://calendly.com/breathebetter-hyperbarichq/30min${isMobile ? '?hide_gdpr_banner=1' : ''}`,
-          parentElement: calendlyContainer,
-          prefill: {
-            name: businessParam,
-          },
-          utm: {
-            utmSource,
-            utmMedium, 
-            utmCampaign
-          }
-        });
-        
-        calendlyInitialized.current = true;
+        try {
+          window.Calendly.initInlineWidget({
+            url: `https://calendly.com/breathebetter-hyperbarichq/30min${isMobile ? '?hide_gdpr_banner=1' : ''}`,
+            parentElement: widgetContainerRef.current,
+            prefill: {
+              name: businessParam,
+            },
+            utm: {
+              utmSource,
+              utmMedium, 
+              utmCampaign
+            }
+          });
+          
+          calendlyInitialized.current = true;
+          console.log("Calendly widget initialized successfully");
+        } catch (error) {
+          console.error("Failed to initialize Calendly widget:", error);
+        }
       }
     }
-    
-    return () => {
-      calendlyInitialized.current = false;
-    };
-  }, [isCalendlyLoaded, isMobile]);
+  }, [isCalendlyLoaded, isMobile, widgetContainerRef.current]);
 
   return (
     <div id="booking-section" className={`py-6 ${isMobile ? 'py-8' : 'py-24'} bg-hbo-off-white`}>
@@ -86,6 +89,7 @@ const BookingSection = () => {
 
           <div className="bg-white rounded-xl md:rounded-2xl shadow-lg p-2 md:p-6 animate-scale-up border border-gray-100">
             <div 
+              ref={widgetContainerRef}
               id="calendly-inline-widget"
               className="calendly-inline-widget" 
               style={{ minWidth: '280px', height: isMobile ? '450px' : '700px' }}
