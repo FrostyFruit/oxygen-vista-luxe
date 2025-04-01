@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { useState } from "react";
@@ -16,7 +15,7 @@ const Navigation = () => {
   return <div className="w-full backdrop-blur-md border-b border-white/10 bg-[F4F3F0] bg-[#f4f3f0] sticky top-0 z-50">
       <div className="container mx-auto px-4 py-3 md:py-4 flex justify-between items-center">
         <div className="flex-1 flex justify-center md:justify-start">
-          <a href="/" className="text-hbo-charcoal hover:text-hbo-gold transition-colors font-libre">PROVIDERS</a>
+          <a href="https://www.hyperbarichq.com/providers" className="text-hbo-charcoal hover:text-hbo-gold transition-colors font-libre">PROVIDERS</a>
         </div>
         
         <div className="hidden md:flex flex-1 justify-center">
@@ -25,7 +24,6 @@ const Navigation = () => {
           </a>
         </div>
         
-        {/* Mobile Logo */}
         <div className="flex md:hidden flex-1 justify-center">
           <a href="https://www.hyperbarichq.com/" className="flex items-center transform hover:scale-105 transition-transform">
             <img alt="Hyperbaric HQ Logo" className="h-10" src="/lovable-uploads/36208eca-527e-4ee7-843c-06ba3c9308e9.png" />
@@ -60,7 +58,6 @@ const Navigation = () => {
         </div>
       </div>
       
-      {/* Mobile Menu */}
       {mobileMenuOpen && <div className="md:hidden absolute top-full left-0 right-0 bg-[#f4f3f0] border-b border-white/10 shadow-lg z-50 animate-fade-in">
           <div className="p-4 flex flex-col space-y-3">
             <a href="https://www.hyperbarichq.com/join-hq" className="text-hbo-charcoal hover:text-hbo-gold transition-colors font-libre py-2">JOIN-HQ</a>
