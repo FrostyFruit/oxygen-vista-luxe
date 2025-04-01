@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from "react";
 import { Play } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -38,7 +39,7 @@ const Hero = () => {
           style={{
             backgroundImage: `
               linear-gradient(to bottom, rgba(26, 31, 44, 0.7), rgba(26, 31, 44, 0.65)), 
-              url('/lovable-uploads/a1ccc72a-72e6-4b78-89fe-71978dd95171.png')
+              url('/lovable-uploads/f6f2d9aa-5fa0-4864-93ee-2c3e27188325.png')
             `,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
