@@ -67,7 +67,7 @@ const Hero = () => {
           </Button>
           
           <p className="text-center text-white/90 text-sm my-3 font-libre italic">
-            First time hearing about HBOT? <button onClick={scrollToResearch} className="text-hbo-gold hover:underline focus:outline-none font-medium">
+            First time hearing about HBOT? <button onClick={scrollToResearch} className="hover:underline focus:outline-none font-medium text-slate-50">
               Check out the research
             </button>
           </p>

@@ -1,11 +1,7 @@
-
 import { Button } from "@/components/ui/button";
-
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-
-  return (
-    <footer className="bg-hbo-charcoal text-white py-12">
+  return <footer className="text-white py-12 bg-[#140f0e]">
       <div className="container px-4 md:px-6 mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           <div className="space-y-4">
@@ -64,8 +60,6 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default Footer;
