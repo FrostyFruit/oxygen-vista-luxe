@@ -39,6 +39,22 @@ const TrustSection = () => {
     }
   ];
 
+  // Partner brand images
+  const partnerBrands = [
+    {
+      name: "OneBase Health",
+      image: "/placeholder.svg"
+    },
+    {
+      name: "HPO Tech",
+      image: "/placeholder.svg"
+    },
+    {
+      name: "Solbassium",
+      image: "/placeholder.svg"
+    }
+  ];
+
   return (
     <div id="trust-section" className="py-12 md:py-24 bg-gradient-to-b from-hbo-off-white to-white">
       <div className="container px-4 md:px-6 mx-auto">
@@ -47,17 +63,27 @@ const TrustSection = () => {
             Trusted by Leading Wellness Professionals
           </h2>
 
-          {/* Partner Logos */}
-          <div className="grid grid-cols-3 gap-4 md:gap-8 mb-8 md:mb-16 items-center justify-items-center opacity-80">
-            <div className={cn("text-center animate-fade-in transition-all duration-300 hover:opacity-100")}>
-              <div className="font-playfair text-base md:text-xl font-bold text-hbo-charcoal">OneBase Health</div>
-            </div>
-            <div className={cn("text-center animate-fade-in [animation-delay:200ms] transition-all duration-300 hover:opacity-100")}>
-              <div className="font-playfair text-base md:text-xl font-bold text-hbo-charcoal">HPO Tech</div>
-            </div>
-            <div className={cn("text-center animate-fade-in [animation-delay:400ms] transition-all duration-300 hover:opacity-100")}>
-              <div className="font-playfair text-base md:text-xl font-bold text-hbo-charcoal">Solbassium</div>
-            </div>
+          {/* Partner Logos - Updated to use images */}
+          <div className="grid grid-cols-3 gap-4 md:gap-8 mb-8 md:mb-16 items-center justify-items-center">
+            {partnerBrands.map((brand, i) => (
+              <div 
+                key={i} 
+                className={cn(
+                  "bg-gray-50 p-3 md:p-4 rounded-lg shadow-sm animate-fade-in transition-all duration-300 hover:shadow-md",
+                  i === 1 && "[animation-delay:200ms]",
+                  i === 2 && "[animation-delay:400ms]"
+                )}
+              >
+                <div className="relative w-full aspect-[3/2] max-w-[120px] md:max-w-[180px]">
+                  <img 
+                    src={brand.image} 
+                    alt={`${brand.name} logo`} 
+                    className="w-full h-full object-contain" 
+                  />
+                </div>
+                <p className="mt-2 text-xs md:text-sm text-center text-gray-600 font-medium">{brand.name}</p>
+              </div>
+            ))}
           </div>
 
           {/* Testimonials */}
