@@ -35,9 +35,9 @@ const Hero = () => {
       {/* Background with dark overlay */}
       <div className="absolute inset-0 -z-10">
         <div 
-          className="absolute inset-0 bg-hbo-charcoal/90"
+          className="absolute inset-0 bg-hbo-charcoal/80"
           style={{
-            backgroundImage: `url('/lovable-uploads/f6007ac6-c9bc-45ad-8233-d53cabf97cd9.png')`,
+            backgroundImage: `url('/lovable-uploads/56bf985d-0b41-494e-926d-3c284fa69ed0.png')`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundBlendMode: 'overlay',
@@ -46,16 +46,9 @@ const Hero = () => {
         />
       </div>
 
-      {/* Branding at the top */}
-      <div className="w-full text-center pt-12 pb-4">
-        <h3 className="text-xl font-playfair tracking-wide text-hbo-off-white/90 animate-fade-in">
-          Hyperbaric HQ
-        </h3>
-      </div>
-
-      <div className="container px-4 md:px-6 space-y-12 flex flex-col items-center animate-fade-in">
+      <div className="container px-4 md:px-6 space-y-12 flex flex-col items-center animate-fade-in pt-20">
         {/* Hero content */}
-        <div className="text-center space-y-4 max-w-4xl mx-auto pt-8">
+        <div className="text-center space-y-4 max-w-4xl mx-auto">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight font-playfair">
             Hi <span className="text-hbo-emerald">{firstName}</span>, welcome to <br/> Hyperbaric HQ
           </h1>
@@ -72,32 +65,49 @@ const Hero = () => {
                 <Play className="w-10 h-10 text-white" />
               </div>
             </div>
+            <iframe 
+              src="https://www.loom.com/embed/ebd367a76d474c64a56e259d335aba3d" 
+              frameBorder="0" 
+              allowFullScreen 
+              className="w-full h-full absolute inset-0 opacity-0"
+              title="Hyperbaric HQ Presentation"
+              allow="autoplay; fullscreen"
+              style={{ opacity: 0.001 }} // Almost invisible but still loads
+            />
             <img 
-              src="/lovable-uploads/f6007ac6-c9bc-45ad-8233-d53cabf97cd9.png" 
+              src="/lovable-uploads/56bf985d-0b41-494e-926d-3c284fa69ed0.png" 
               alt="Hyperbaric Chamber" 
               className="w-full h-full object-cover opacity-60"
             />
           </div>
         </div>
 
-        {/* CTA Button */}
-        <div className="pt-6 w-full max-w-md mx-auto flex justify-center">
+        {/* CTA Buttons - Stacked */}
+        <div className="pt-6 w-full max-w-md mx-auto flex flex-col items-center space-y-4">
           <Button 
-            className="bg-hbo-gold hover:bg-hbo-gold/90 text-hbo-charcoal font-medium rounded-full px-12 py-6 text-lg shadow-lg transform transition-transform duration-300 hover:scale-105 w-full"
+            className="bg-hbo-emerald hover:bg-hbo-emerald/90 text-white font-medium rounded-full px-12 py-6 text-lg shadow-lg transform transition-transform duration-300 hover:scale-105 w-full"
             onClick={scrollToBooking}
           >
             Book Your Consultation
           </Button>
-        </div>
-        
-        <p className="text-center text-white/80 text-sm">
-          *First time hearing about HBOT? <button 
+          
+          <p className="text-center text-white/80 text-sm">
+            *First time hearing about HBOT? <button 
+              onClick={scrollToResearch}
+              className="text-hbo-gold hover:underline focus:outline-none"
+            >
+              Check out the research
+            </button>
+          </p>
+          
+          <Button 
+            variant="outline"
+            className="bg-transparent border border-white/20 text-white hover:bg-white/10 font-medium rounded-full px-12 py-6 text-lg shadow-lg transform transition-transform duration-300 hover:scale-105 w-full"
             onClick={scrollToResearch}
-            className="text-hbo-gold hover:underline focus:outline-none"
           >
-            Check out the research
-          </button>
-        </p>
+            Explore Research
+          </Button>
+        </div>
       </div>
     </div>
   );

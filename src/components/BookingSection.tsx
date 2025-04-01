@@ -43,7 +43,7 @@ const BookingSection = () => {
             ) : (
               <div className="h-[700px] flex items-center justify-center">
                 <div className="animate-pulse flex flex-col items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-hbo-gold/30"></div>
+                  <div className="w-12 h-12 rounded-full bg-hbo-emerald/30"></div>
                   <div className="h-4 bg-gray-200 rounded w-1/2"></div>
                   <div className="h-4 bg-gray-200 rounded w-1/3"></div>
                 </div>
