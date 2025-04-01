@@ -74,7 +74,7 @@ const Hero = () => {
             Book Your Consultation
           </Button>
           
-          <p className="text-center text-white/90 text-xs md:text-sm my-2 md:my-3 font-libre italic">
+          <p className="text-center text-white/90 text-xs md:text-sm my-1 md:my-2 font-libre italic">
             First time hearing about HBOT? <button onClick={scrollToResearch} className="hover:underline focus:outline-none font-medium text-slate-50">
               Check out the research
             </button>
@@ -86,11 +86,11 @@ const Hero = () => {
         </div>
       </div>
       
-      {/* Improved transition between sections - smoother gradient */}
-      <div className="w-full mt-10 md:mt-16 relative">
+      {/* Improved transition between sections - reduced gap for mobile */}
+      <div className="w-full mt-6 md:mt-16 relative">
         <div className="absolute inset-x-0 -top-12 h-24 bg-gradient-to-t from-hbo-charcoal to-transparent" />
         <div className="h-px w-full bg-gradient-to-r from-transparent via-hbo-gold/30 to-transparent" />
-        <div className="absolute inset-x-0 -bottom-12 h-24 from-hbo-charcoal to-hbo-charcoal/95 bg-[140f0e] bg-[#140f0e]" />
+        <div className="absolute inset-x-0 -bottom-6 md:-bottom-12 h-24 from-hbo-charcoal to-hbo-charcoal/95 bg-[140f0e] bg-[#140f0e]" />
       </div>
     </div>;
 };
