@@ -20,14 +20,14 @@ const Navigation = () => {
         </div>
         
         <div className="hidden md:flex flex-1 justify-center">
-          <a href="/" className="flex items-center transform hover:scale-105 transition-transform">
+          <a href="https://www.hyperbarichq.com/" className="flex items-center transform hover:scale-105 transition-transform">
             <img alt="Hyperbaric HQ Logo" className="h-14" src="/lovable-uploads/36208eca-527e-4ee7-843c-06ba3c9308e9.png" />
           </a>
         </div>
         
         {/* Mobile Logo */}
         <div className="flex md:hidden flex-1 justify-center">
-          <a href="/" className="flex items-center transform hover:scale-105 transition-transform">
+          <a href="https://www.hyperbarichq.com/" className="flex items-center transform hover:scale-105 transition-transform">
             <img alt="Hyperbaric HQ Logo" className="h-10" src="/lovable-uploads/36208eca-527e-4ee7-843c-06ba3c9308e9.png" />
           </a>
         </div>
