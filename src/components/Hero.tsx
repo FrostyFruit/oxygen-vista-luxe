@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 import { Play } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -112,11 +111,11 @@ const Hero = () => {
         </div>
       </div>
       
-      {/* Delineation between sections - premium divider */}
+      {/* Improved transition between sections - smoother gradient */}
       <div className="w-full mt-16 relative">
-        <div className="absolute inset-x-0 -top-8 h-16 bg-gradient-to-t from-hbo-charcoal to-transparent"/>
-        <div className="h-px w-full bg-gradient-to-r from-transparent via-hbo-gold/50 to-transparent"/>
-        <div className="absolute inset-x-0 -bottom-8 h-16 bg-gradient-to-b from-hbo-charcoal to-transparent"/>
+        <div className="absolute inset-x-0 -top-12 h-24 bg-gradient-to-t from-hbo-charcoal to-transparent"/>
+        <div className="h-px w-full bg-gradient-to-r from-transparent via-hbo-gold/30 to-transparent"/>
+        <div className="absolute inset-x-0 -bottom-12 h-24 bg-gradient-to-b from-hbo-charcoal to-hbo-charcoal/95"/>
       </div>
     </div>
   );
