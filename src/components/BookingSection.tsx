@@ -10,48 +10,66 @@ const BookingSection = () => {
   const calendlyInitialized = useRef(false);
   const widgetContainerRef = useRef<HTMLDivElement | null>(null);
 
+  // Load the Calendly script once
   useEffect(() => {
-    // Only add the script once
     if (!calendlyScriptRef.current && !document.getElementById('calendly-script')) {
-      // Create script element
+      console.log("Creating Calendly script element");
       const script = document.createElement('script');
       script.src = 'https://assets.calendly.com/assets/external/widget.js';
       script.async = true;
       script.id = 'calendly-script';
       
       script.onload = () => {
+        console.log("Calendly script loaded successfully");
         setIsCalendlyLoaded(true);
+      };
+      
+      script.onerror = (e) => {
+        console.error("Failed to load Calendly script:", e);
       };
       
       document.body.appendChild(script);
       calendlyScriptRef.current = script;
     } else if (document.getElementById('calendly-script')) {
       // If script already exists but state doesn't reflect it
+      console.log("Calendly script already exists in DOM");
       setIsCalendlyLoaded(true);
     }
 
+    // Clean up function - reset initialization flag only
     return () => {
-      // Cleanup function
+      console.log("BookingSection unmounting, cleaning up");
       calendlyInitialized.current = false;
     };
-  }, []);
+  }, []); // Empty dependency array to ensure this only runs once
 
   // Initialize Calendly widget once the script is loaded
   useEffect(() => {
-    if (isCalendlyLoaded && window.Calendly && !calendlyInitialized.current && widgetContainerRef.current) {
-      // Clear any existing content
-      if (widgetContainerRef.current) {
-        widgetContainerRef.current.innerHTML = '';
+    // Only proceed if all conditions are met
+    if (!isCalendlyLoaded || !window.Calendly || calendlyInitialized.current || !widgetContainerRef.current) {
+      return; // Exit early if conditions aren't met
+    }
+    
+    console.log("Attempting to initialize Calendly widget");
+    
+    // Clear any existing content to prevent duplicate widgets
+    if (widgetContainerRef.current) {
+      widgetContainerRef.current.innerHTML = '';
+    
+      const params = new URLSearchParams(window.location.search);
+      const businessParam = params.get("business") || "";
       
-        const params = new URLSearchParams(window.location.search);
-        const businessParam = params.get("business") || "";
+      // Get UTM parameters for Calendly tracking
+      const utmSource = params.get("utm_source") || "";
+      const utmMedium = params.get("utm_medium") || "";
+      const utmCampaign = params.get("utm_campaign") || "";
+      
+      try {
+        // Set the flag first to prevent multiple initialization attempts
+        calendlyInitialized.current = true;
         
-        // Get UTM parameters for Calendly tracking
-        const utmSource = params.get("utm_source") || "";
-        const utmMedium = params.get("utm_medium") || "";
-        const utmCampaign = params.get("utm_campaign") || "";
-        
-        try {
+        // Small timeout to ensure the DOM is ready
+        setTimeout(() => {
           window.Calendly.initInlineWidget({
             url: `https://calendly.com/breathebetter-hyperbarichq/30min${isMobile ? '?hide_gdpr_banner=1' : ''}`,
             parentElement: widgetContainerRef.current,
@@ -64,15 +82,15 @@ const BookingSection = () => {
               utmCampaign
             }
           });
-          
-          calendlyInitialized.current = true;
           console.log("Calendly widget initialized successfully");
-        } catch (error) {
-          console.error("Failed to initialize Calendly widget:", error);
-        }
+        }, 100);
+      } catch (error) {
+        console.error("Failed to initialize Calendly widget:", error);
+        // Reset the flag if initialization fails so we can try again
+        calendlyInitialized.current = false;
       }
     }
-  }, [isCalendlyLoaded, isMobile, widgetContainerRef.current]);
+  }, [isCalendlyLoaded, isMobile]); // Removed widgetContainerRef from dependencies
 
   return (
     <div id="booking-section" className={`py-6 ${isMobile ? 'py-8' : 'py-24'} bg-hbo-off-white`}>
@@ -93,6 +111,7 @@ const BookingSection = () => {
               id="calendly-inline-widget"
               className="calendly-inline-widget" 
               style={{ minWidth: '280px', height: isMobile ? '450px' : '700px' }}
+              data-url={`https://calendly.com/breathebetter-hyperbarichq/30min${isMobile ? '?hide_gdpr_banner=1' : ''}`}
             >
               {!isCalendlyLoaded && (
                 <div className="flex items-center justify-center h-full">
