@@ -32,14 +32,14 @@ const Hero = () => {
 
   return (
     <div className="relative min-h-screen flex flex-col items-center text-white">
-      {/* Premium gradient background overlay */}
+      {/* Premium gradient background overlay - Using hyperbaric chamber image for entire hero section */}
       <div className="absolute inset-0 -z-10">
         <div 
           className="absolute inset-0"
           style={{
             backgroundImage: `
               linear-gradient(to bottom, rgba(26, 31, 44, 0.85), rgba(26, 31, 44, 0.75)), 
-              url('/lovable-uploads/6d1d0ee9-433e-4c92-8789-97f417e3e974.png')
+              url('/lovable-uploads/c8e2bd9f-c354-4f50-b08a-cf654cb4ec37.png')
             `,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
@@ -77,7 +77,7 @@ const Hero = () => {
               style={{ opacity: 0.001 }} // Almost invisible but still loads
             />
             <img 
-              src="/lovable-uploads/c8e2bd9f-c354-4f50-b08a-cf654cb4ec37.png" 
+              src="/lovable-uploads/6d1d0ee9-433e-4c92-8789-97f417e3e974.png" 
               alt="Hyperbaric Chamber" 
               className="w-full h-full object-cover opacity-50"
             />
