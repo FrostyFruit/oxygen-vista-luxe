@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { useState } from "react";
@@ -41,9 +42,11 @@ const Navigation = () => {
                   Subscribe
                 </Button>
                 
-                <Button variant="outline" className="bg-hbo-button-gold/90 text-hbo-charcoal hover:bg-hbo-button-gold border-hbo-button-gold rounded-full px-4 py-1 h-auto text-sm shadow-md font-libre">
-                  Shop Chambers
-                </Button>
+                <a href="https://www.hyperbarichq.com/chambers">
+                  <Button variant="outline" className="bg-hbo-button-gold/90 text-hbo-charcoal hover:bg-hbo-button-gold border-hbo-button-gold rounded-full px-4 py-1 h-auto text-sm shadow-md font-libre">
+                    Shop Chambers
+                  </Button>
+                </a>
                 
                 <div className="w-8 h-8 rounded-full bg-gradient-to-br from-hbo-emerald to-hbo-gold/80 flex items-center justify-center text-white shadow-md">
                   <span className="sr-only">Account</span>
@@ -64,9 +67,11 @@ const Navigation = () => {
             <Button variant="default" className="bg-hbo-button-green hover:bg-hbo-button-green/90 text-white rounded-full px-4 py-2 h-auto text-sm shadow-md font-libre w-full">
               Subscribe
             </Button>
-            <Button variant="outline" className="bg-hbo-button-gold/90 text-hbo-charcoal hover:bg-hbo-button-gold border-hbo-button-gold rounded-full px-4 py-2 h-auto text-sm shadow-md font-libre w-full">
-              Shop Chambers
-            </Button>
+            <a href="https://www.hyperbarichq.com/chambers">
+              <Button variant="outline" className="bg-hbo-button-gold/90 text-hbo-charcoal hover:bg-hbo-button-gold border-hbo-button-gold rounded-full px-4 py-2 h-auto text-sm shadow-md font-libre w-full">
+                Shop Chambers
+              </Button>
+            </a>
             <div className="flex items-center gap-2 py-2">
               <div className="w-6 h-6 rounded-full bg-gradient-to-br from-hbo-emerald to-hbo-gold/80 flex items-center justify-center text-white shadow-md">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-3 h-3">
