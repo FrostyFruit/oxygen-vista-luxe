@@ -38,10 +38,10 @@ const BookingSection = () => {
   }, [isMobile]);
 
   return (
-    <div id="booking-section" className="py-8 md:py-24 bg-hbo-off-white">
+    <div id="booking-section" className={`py-6 ${isMobile ? 'py-8' : 'py-24'} bg-hbo-off-white`}>
       <div className="container px-3 md:px-6 mx-auto">
         <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-4 md:mb-12 animate-fade-in">
+          <div className="text-center mb-3 md:mb-12 animate-fade-in">
             <h2 className="text-xl md:text-4xl font-bold text-hbo-charcoal mb-2 md:mb-4 font-playfair">
               Reserve Your 30 Minute Session with Peter
             </h2>

@@ -35,11 +35,12 @@ const Hero = () => {
     }
   };
 
-  return <div className="relative min-h-[calc(100vh-40px)] md:min-h-screen flex flex-col items-center text-white bg-[#140f0e]">
+  return (
+    <div className={`relative ${isMobile ? 'min-h-[85vh]' : 'min-h-screen'} flex flex-col items-center text-white bg-[#140f0e]`}>
       <div className="absolute inset-0 -z-10 bg-[#140F0E]"></div>
 
-      <div className="container px-4 md:px-6 space-y-6 md:space-y-12 flex flex-col items-center animate-fade-in pt-6 md:pt-20 bg-[#140f0e]">
-        <div className="text-center space-y-3 md:space-y-6 max-w-4xl mx-auto">
+      <div className="container px-4 md:px-6 space-y-4 md:space-y-12 flex flex-col items-center animate-fade-in pt-4 md:pt-20 bg-[#140f0e]">
+        <div className="text-center space-y-2 md:space-y-6 max-w-4xl mx-auto">
           <p className="text-base md:text-xl text-white font-normal mb-0 md:mb-2">Hyperbaric HQ</p>
           <h1 className="text-2xl sm:text-3xl md:text-6xl lg:text-7xl tracking-tight leading-tight font-medium px-2">
             Hi {firstName}, welcome to<br />Hyperbaric HQ
@@ -64,7 +65,7 @@ const Hero = () => {
         </div>
 
         <div className="pt-2 md:pt-6 w-full max-w-md mx-auto flex flex-col items-center space-y-2 md:space-y-4 px-4">
-          <Button className="bg-hbo-button-green hover:bg-hbo-button-green/90 text-white font-medium rounded-full px-6 md:px-12 py-4 md:py-6 text-sm md:text-lg shadow-xl transform transition-transform duration-300 hover:scale-105 w-full font-libre" onClick={scrollToBooking}>
+          <Button className="bg-hbo-button-green hover:bg-hbo-button-green/90 text-white font-medium rounded-full px-6 md:px-12 py-3 md:py-6 text-sm md:text-lg shadow-xl transform transition-transform duration-300 hover:scale-105 w-full font-libre" onClick={scrollToBooking}>
             Book Your Consultation
           </Button>
           
@@ -75,19 +76,28 @@ const Hero = () => {
           </p>
           
           <a href="https://www.hyperbarichq.com/research">
-            <Button variant="outline" className="bg-transparent border border-hbo-button-gold bg-hbo-button-gold/90 text-hbo-charcoal hover:bg-hbo-button-gold font-medium rounded-full px-6 md:px-12 py-4 md:py-6 text-sm md:text-lg shadow-xl transform transition-transform duration-300 hover:scale-105 w-full font-libre">
+            <Button variant="outline" className="bg-transparent border border-hbo-button-gold bg-hbo-button-gold/90 text-hbo-charcoal hover:bg-hbo-button-gold font-medium rounded-full px-6 md:px-12 py-3 md:py-6 text-sm md:text-lg shadow-xl transform transition-transform duration-300 hover:scale-105 w-full font-libre">
               Explore Research
             </Button>
           </a>
         </div>
       </div>
       
-      <div className="w-full mt-6 md:mt-16 relative">
-        <div className="absolute inset-x-0 -top-12 h-24 bg-gradient-to-t from-hbo-charcoal to-transparent" />
-        <div className="h-px w-full bg-gradient-to-r from-transparent via-hbo-gold/30 to-transparent" />
-        <div className="absolute inset-x-0 -bottom-12 h-24 from-hbo-charcoal to-hbo-charcoal/95 bg-[#140f0e]" />
-      </div>
-    </div>;
+      {!isMobile && (
+        <div className="w-full mt-16 relative">
+          <div className="absolute inset-x-0 -top-12 h-24 bg-gradient-to-t from-hbo-charcoal to-transparent" />
+          <div className="h-px w-full bg-gradient-to-r from-transparent via-hbo-gold/30 to-transparent" />
+          <div className="absolute inset-x-0 -bottom-12 h-24 from-hbo-charcoal to-hbo-charcoal/95 bg-[#140f0e]" />
+        </div>
+      )}
+      
+      {isMobile && (
+        <div className="w-full mt-8 relative">
+          <div className="h-px w-full bg-gradient-to-r from-transparent via-hbo-gold/30 to-transparent" />
+        </div>
+      )}
+    </div>
+  );
 };
 
 export default Hero;

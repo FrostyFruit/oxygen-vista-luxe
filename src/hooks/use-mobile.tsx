@@ -5,7 +5,7 @@ const MOBILE_BREAKPOINT = 768
 
 export function useIsMobile() {
   const [isMobile, setIsMobile] = React.useState<boolean>(() => {
-    // Default to true on initial render for mobile-first approach
+    // Default to detecting based on viewport if window exists, otherwise assume desktop
     if (typeof window !== 'undefined') {
       return window.innerWidth < MOBILE_BREAKPOINT
     }
@@ -13,8 +13,17 @@ export function useIsMobile() {
   })
 
   React.useEffect(() => {
+    // Create a more efficient resize handler with debounce-like behavior
+    let timeoutId: number | null = null
+    
     const handleResize = () => {
-      setIsMobile(window.innerWidth < MOBILE_BREAKPOINT)
+      if (timeoutId) {
+        clearTimeout(timeoutId)
+      }
+      
+      timeoutId = window.setTimeout(() => {
+        setIsMobile(window.innerWidth < MOBILE_BREAKPOINT)
+      }, 100) // Small delay to avoid too many re-renders
     }
     
     // Add event listener
@@ -24,7 +33,10 @@ export function useIsMobile() {
     handleResize()
     
     // Clean up
-    return () => window.removeEventListener("resize", handleResize)
+    return () => {
+      window.removeEventListener("resize", handleResize)
+      if (timeoutId) clearTimeout(timeoutId)
+    }
   }, [])
 
   return isMobile
