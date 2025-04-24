@@ -10,23 +10,23 @@ interface VideoMapping {
 export const videoMappings: Record<BusinessVertical, VideoMapping> = {
   skincare: {
     youtubeEmbedId: 'cSYWLgxRJTA',
-    thumbnailUrl: '/lovable-uploads/6d1d0ee9-433e-4c92-8789-97f417e3e974.png'
+    thumbnailUrl: `https://img.youtube.com/vi/cSYWLgxRJTA/maxresdefault.jpg`
   },
   fitness: {
     youtubeEmbedId: 'cSYWLgxRJTA',
-    thumbnailUrl: '/lovable-uploads/6d1d0ee9-433e-4c92-8789-97f417e3e974.png'
+    thumbnailUrl: `https://img.youtube.com/vi/cSYWLgxRJTA/maxresdefault.jpg`
   },
   wellness: {
     youtubeEmbedId: 'cSYWLgxRJTA',
-    thumbnailUrl: '/lovable-uploads/6d1d0ee9-433e-4c92-8789-97f417e3e974.png'
+    thumbnailUrl: `https://img.youtube.com/vi/cSYWLgxRJTA/maxresdefault.jpg`
   },
   medical: {
     youtubeEmbedId: 'cSYWLgxRJTA',
-    thumbnailUrl: '/lovable-uploads/6d1d0ee9-433e-4c92-8789-97f417e3e974.png'
+    thumbnailUrl: `https://img.youtube.com/vi/cSYWLgxRJTA/maxresdefault.jpg`
   },
   default: {
     youtubeEmbedId: 'cSYWLgxRJTA',
-    thumbnailUrl: '/lovable-uploads/6d1d0ee9-433e-4c92-8789-97f417e3e974.png'
+    thumbnailUrl: `https://img.youtube.com/vi/cSYWLgxRJTA/maxresdefault.jpg`
   }
 };
 
