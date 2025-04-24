@@ -3,17 +3,13 @@ import { Play } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { useIsMobile } from "@/hooks/use-mobile";
-import { getVideoForVertical } from "@/utils/videoMappings";
 import { useProspect } from "@/hooks/use-prospect";
 
 const Hero = () => {
   const [firstName, setFirstName] = useState("there");
   const [businessName, setBusinessName] = useState("");
   const [vertical, setVertical] = useState("default");
-  const [videoData, setVideoData] = useState({
-    loomEmbedId: "ebd367a76d474c64a56e259d335aba3d",
-    thumbnailUrl: "/lovable-uploads/6d1d0ee9-433e-4c92-8789-97f417e3e974.png"
-  });
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
   const isMobile = useIsMobile();
   const { data: prospect, isLoading, error } = useProspect();
   
@@ -94,23 +90,31 @@ const Hero = () => {
 
         <div className="bg-gradient-to-br from-black/50 to-hbo-charcoal/50 backdrop-blur-sm rounded-xl md:rounded-2xl shadow-xl p-2 md:p-4 w-full mx-auto animate-scale-up border border-white/10 mt-4 md:mt-8">
           <div className="relative aspect-video rounded-lg md:rounded-xl overflow-hidden flex items-center justify-center">
-            <div className="absolute inset-0 flex items-center justify-center z-10">
-              <div className={cn("rounded-full bg-hbo-gold/90 flex items-center justify-center cursor-pointer hover:bg-hbo-gold transition-colors duration-300 shadow-lg", isMobile ? "w-12 h-12" : "w-20 h-20")}>
-                <Play className={cn("text-white", isMobile ? "w-6 h-6" : "w-10 h-10")} />
+            {!isVideoPlaying && (
+              <div className="absolute inset-0 flex items-center justify-center z-10" onClick={() => setIsVideoPlaying(true)}>
+                <div className={cn("rounded-full bg-hbo-gold/90 flex items-center justify-center cursor-pointer hover:bg-hbo-gold transition-colors duration-300 shadow-lg", isMobile ? "w-12 h-12" : "w-20 h-20")}>
+                  <Play className={cn("text-white", isMobile ? "w-6 h-6" : "w-10 h-10")} />
+                </div>
               </div>
-            </div>
-            <iframe 
-              src={`https://www.loom.com/embed/${videoData.loomEmbedId}`} 
-              frameBorder="0" 
-              allowFullScreen 
-              className="w-full h-full absolute inset-0 opacity-0" 
-              title="Hyperbaric HQ Presentation" 
-              allow="autoplay; fullscreen" 
-              style={{
-                opacity: 0.001
-              }} 
-            />
-            <img src={videoData.thumbnailUrl} alt="Hyperbaric Chamber" className="w-full h-full object-cover opacity-50" />
+            )}
+            {isVideoPlaying ? (
+              <iframe
+                width="100%"
+                height="100%"
+                src="https://www.youtube.com/embed/a8NCAkFikOA?autoplay=1"
+                title="Hyperbaric Chamber Video"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="absolute inset-0"
+              />
+            ) : (
+              <img 
+                src="/lovable-uploads/6d1d0ee9-433e-4c92-8789-97f417e3e974.png" 
+                alt="Hyperbaric Chamber" 
+                className="w-full h-full object-cover opacity-50" 
+              />
+            )}
           </div>
         </div>
 
