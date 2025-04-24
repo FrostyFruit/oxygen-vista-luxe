@@ -70,7 +70,7 @@ const Hero = () => {
   const displayBusinessName = businessName ? businessName : "Hyperbaric HQ";
   
   // Determine what intro text to display
-  const introText = prospect?.intro_text || "A personalized message from Peter";
+  const introText = prospect?.intro_text || "A personalised message from Peter";
 
   return (
     <div className={`relative flex flex-col items-center text-white bg-[#140f0e]`}>
