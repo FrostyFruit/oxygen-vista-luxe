@@ -15,7 +15,17 @@ const Hero = () => {
     thumbnailUrl: "/lovable-uploads/6d1d0ee9-433e-4c92-8789-97f417e3e974.png"
   });
   const isMobile = useIsMobile();
-  const { data: prospect } = useProspect();
+  const { data: prospect, isLoading, error } = useProspect();
+  
+  useEffect(() => {
+    console.log("Hero component - Prospect data:", prospect);
+    
+    // Set business name from prospect if available
+    if (prospect?.business_name) {
+      setBusinessName(prospect.business_name);
+      console.log("Setting business name from prospect:", prospect.business_name);
+    }
+  }, [prospect]);
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -26,7 +36,7 @@ const Hero = () => {
       setFirstName(nameParam);
     }
     
-    // Get business name parameter
+    // Get business name parameter (override prospect data if provided in URL)
     const businessParam = params.get("business");
     if (businessParam) {
       setBusinessName(businessParam);
@@ -59,18 +69,26 @@ const Hero = () => {
     }
   };
 
+  // Determine what business name to display
+  const displayBusinessName = businessName ? businessName : "Hyperbaric HQ";
+  
+  // Determine what intro text to display
+  const introText = prospect?.intro_text || "A personalized message from Peter";
+
   return (
     <div className={`relative flex flex-col items-center text-white bg-[#140f0e]`}>
       <div className="absolute inset-0 -z-10 bg-[#140F0E]"></div>
 
       <div className="container px-4 md:px-6 flex flex-col items-center animate-fade-in pt-4 md:pt-20 bg-[#140f0e]">
         <div className="text-center space-y-2 md:space-y-6 max-w-4xl mx-auto">
-          <p className="text-base md:text-xl text-white font-normal mb-0 md:mb-2">Hyperbaric HQ</p>
+          <p className="text-base md:text-xl text-white font-normal mb-0 md:mb-2">
+            {displayBusinessName}
+          </p>
           <h1 className="text-2xl sm:text-3xl md:text-6xl lg:text-7xl tracking-tight leading-tight font-medium px-2">
-            Hi {firstName}{businessName ? `, welcome to ${businessName}` : ", welcome to Hyperbaric HQ"}
+            Hi {firstName}{businessName ? `, welcome to ${displayBusinessName}` : ", welcome to Hyperbaric HQ"}
           </h1>
           <p className="text-sm md:text-lg text-white/90 mt-1 md:mt-4">
-            {prospect?.intro_text || "A personalized message from Peter"}
+            {introText}
           </p>
         </div>
 
