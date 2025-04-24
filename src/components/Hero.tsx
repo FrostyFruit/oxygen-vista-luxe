@@ -1,10 +1,10 @@
-
 import { useEffect, useState } from "react";
 import { Play } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { getVideoForVertical } from "@/utils/videoMappings";
+import { useProspect } from "@/hooks/use-prospect";
 
 const Hero = () => {
   const [firstName, setFirstName] = useState("there");
@@ -15,6 +15,7 @@ const Hero = () => {
     thumbnailUrl: "/lovable-uploads/6d1d0ee9-433e-4c92-8789-97f417e3e974.png"
   });
   const isMobile = useIsMobile();
+  const { data: prospect } = useProspect();
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -69,7 +70,7 @@ const Hero = () => {
             Hi {firstName}{businessName ? `, welcome to ${businessName}` : ", welcome to Hyperbaric HQ"}
           </h1>
           <p className="text-sm md:text-lg text-white/90 mt-1 md:mt-4">
-            A personalized message from Peter
+            {prospect?.intro_text || "A personalized message from Peter"}
           </p>
         </div>
 
