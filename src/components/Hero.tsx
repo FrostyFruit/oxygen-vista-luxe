@@ -1,16 +1,17 @@
-
 import { useEffect, useState } from "react";
 import { Play } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { useProspect } from "@/hooks/use-prospect";
+import { getVideoForVertical } from "@/utils/videoMappings";
 
 const Hero = () => {
   const [firstName, setFirstName] = useState("there");
   const [businessName, setBusinessName] = useState("");
   const [vertical, setVertical] = useState("default");
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+  const [videoData, setVideoData] = useState(getVideoForVertical(vertical));
   const isMobile = useIsMobile();
   const { data: prospect, isLoading, error } = useProspect();
   
@@ -43,7 +44,7 @@ const Hero = () => {
     const verticalParam = params.get("vertical");
     if (verticalParam) {
       setVertical(verticalParam);
-      // We no longer use setVideoData since we're directly using YouTube embed
+      setVideoData(getVideoForVertical(verticalParam));
     }
   }, []);
 
@@ -101,7 +102,7 @@ const Hero = () => {
               <iframe
                 width="100%"
                 height="100%"
-                src="https://www.youtube.com/embed/a8NCAkFikOA?autoplay=1"
+                src={`https://www.youtube.com/embed/${videoData.youtubeEmbedId}?autoplay=1`}
                 title="Hyperbaric Chamber Video"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -110,7 +111,7 @@ const Hero = () => {
               />
             ) : (
               <img 
-                src="/lovable-uploads/6d1d0ee9-433e-4c92-8789-97f417e3e974.png" 
+                src={videoData.thumbnailUrl} 
                 alt="Hyperbaric Chamber" 
                 className="w-full h-full object-cover opacity-50" 
               />
