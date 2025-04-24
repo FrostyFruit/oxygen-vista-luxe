@@ -9,23 +9,23 @@ interface VideoMapping {
 
 export const videoMappings: Record<BusinessVertical, VideoMapping> = {
   skincare: {
-    youtubeEmbedId: 'a8NCAkFikOA',
+    youtubeEmbedId: 'cSYWLgxRJTA',
     thumbnailUrl: '/lovable-uploads/6d1d0ee9-433e-4c92-8789-97f417e3e974.png'
   },
   fitness: {
-    youtubeEmbedId: 'a8NCAkFikOA',
+    youtubeEmbedId: 'cSYWLgxRJTA',
     thumbnailUrl: '/lovable-uploads/6d1d0ee9-433e-4c92-8789-97f417e3e974.png'
   },
   wellness: {
-    youtubeEmbedId: 'a8NCAkFikOA',
+    youtubeEmbedId: 'cSYWLgxRJTA',
     thumbnailUrl: '/lovable-uploads/6d1d0ee9-433e-4c92-8789-97f417e3e974.png'
   },
   medical: {
-    youtubeEmbedId: 'a8NCAkFikOA',
+    youtubeEmbedId: 'cSYWLgxRJTA',
     thumbnailUrl: '/lovable-uploads/6d1d0ee9-433e-4c92-8789-97f417e3e974.png'
   },
   default: {
-    youtubeEmbedId: 'a8NCAkFikOA',
+    youtubeEmbedId: 'cSYWLgxRJTA',
     thumbnailUrl: '/lovable-uploads/6d1d0ee9-433e-4c92-8789-97f417e3e974.png'
   }
 };
