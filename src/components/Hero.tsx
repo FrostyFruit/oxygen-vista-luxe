@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from "react";
 import { Play } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -42,8 +43,7 @@ const Hero = () => {
     const verticalParam = params.get("vertical");
     if (verticalParam) {
       setVertical(verticalParam);
-      // Set video based on vertical
-      setVideoData(getVideoForVertical(verticalParam));
+      // We no longer use setVideoData since we're directly using YouTube embed
     }
   }, []);
 
